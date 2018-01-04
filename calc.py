@@ -11,9 +11,10 @@ def multip(a, b):
 
 
 def divis(a, b):
-    print(int(a / b))
+    division = int(a / b)
     # Devuelve el resto de una división
-    print('El resto es: {}'.format(a % b))
+    resto = a % b
+    return division, resto
 
 
 def calc():
@@ -31,6 +32,7 @@ def calc():
     numero2 = int(numero2)
 
     # Operadores
+    resto = None
     print('El resultado es:')
     if func == 1:  # Suma
         result = suma(numero1, numero2)
@@ -39,8 +41,11 @@ def calc():
     elif func == 3:  # Multiplicación
         result = multip(numero1, numero2)
     elif func == 4:  # División
-        result = divis(numero1, numero2)
+        result, resto = divis(numero1, numero2)
     print(result)
+    if resto:
+        print('El resto es: {}'.format(resto))
+
 
 if __name__ == '__main__':
     calc()
